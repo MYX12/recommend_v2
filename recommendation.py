@@ -30,9 +30,11 @@ def content_based_recommender(title,sim_scores=sim_matrix):
     podcast_indices=[i[0] for i in sim_scores]
     
     podcast_title=df_use['title'].iloc[podcast_indices]
-    recommendation_data=pd.DataFrame(columns=['title'])
+    podcast_link=df_use['link'].iloc[podcast_indices]
+    recommendation_data=pd.DataFrame(columns=['title','link'])
     
     recommendation_data['title']=podcast_title
+    recommendation_data['link']=podcast_link
     
     recommendation_data=recommendation_data.to_dict('records')
     
